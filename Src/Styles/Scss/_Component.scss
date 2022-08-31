@@ -1,30 +1,53 @@
 //Border Components Part
+%customBorder-radius-left{
+    border-top-left-radius:23px;
+    border-bottom-left-radius:23px;
+}
+%customBorder-radius-right{
+    border-top-right-radius:23px;
+    border-bottom-right-radius:23px;
+}
+%customBorder-includes{
+    position:absolute;
+    width:5.5px;
+    background:map-get($map:$colors,$key:infoColor);
+    content:'';
+}
 .customBorder--right{
     position:relative;
     &::before{
-        content:'';
-        width:5.5px;
+        @extend %customBorder-includes;
         height:32%;
-        position:absolute;
         top:15%;
         right:0;
-        background:map-get($map:$colors,$key:infoColor);
-        border-top-left-radius:23px;
-        border-bottom-left-radius:23px;
+        @extend %customBorder-radius-left;
     }
 }
 .customBorder--left{
     position:relative;
     &::before{
-        content:'';
-        width:5.5px;
+        @extend %customBorder-includes;
         height:32%;
-        position:absolute;
         top:15%;
         left:0;
-        background:map-get($map:$colors,$key:infoColor);
-        border-top-right-radius:23px;
-        border-bottom-right-radius:23px;
+        @extend %customBorder-radius-right;
+    }
+}
+.customBorder--both{
+    position:relative;
+    &::before,&::after{
+        @extend %customBorder-includes;
+        top:50%;
+        transform:translateY(-50%);
+        height:35%;
+    }
+    &::before{
+        left:0;
+        @extend %customBorder-radius-right;
+    }
+    &::after{
+        right:0;
+        @extend %customBorder-radius-left;
     }
 }
 
@@ -79,10 +102,26 @@ h6{
 
 
 //Animations Part
-@keyframes ShowOnLeft{
+@keyframes ShowOnRight{
     0%{
         opacity:0;
         transform:translateX(300px);
+    }100%{
+        opacity:1;
+    }
+}
+@keyframes ShowOnLeft{
+    0%{
+        opacity:0;
+        transform:translateX(-300px);
+    }100%{
+        opacity:1;
+    }
+}
+@keyframes ShowOnTop{
+    0%{
+        opacity:0;
+        transform:translateY(-200px);
     }100%{
         opacity:1;
     }
@@ -98,7 +137,18 @@ h6{
 
 
 
-//TextSpacing Components Part
+//Text-Spacing Components Part
 .text--space{
     letter-spacing:1.8px;
+}
+
+
+
+//Placeholder-Selectors Components Part
+%boxShadow{
+    box-shadow:0 10px 20px #00000030, 0 10px 10px #0000003b;
+    transition:box-shadow 0.65s ease;
+    &:hover{
+        box-shadow:#ffffff1a 0px 1px 1px 0px inset,#32325d40 0px 50px 100px -20px,#0000004d 0px 30px 60px -30px;
+    }
 }
