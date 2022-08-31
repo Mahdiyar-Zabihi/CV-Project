@@ -1,0 +1,47 @@
+@font-face {
+    font-family:"Vazir";
+    src:
+        url("./../../Fonts/Vazir-Medium-FD.ttf")format("truetype"),
+        url("./../../Fonts/Vazir-Medium-FD.woff2")format("woff2"),
+        url("./../../Fonts/Vazir-Medium-FD.eot")format("opentype");
+}
+
+//Reset Styles Part
+*:not(i),*::after:not(i),*::before:not(i){
+    margin:0;
+    padding:0;
+    font-display:swap;
+    box-sizing:border-box;
+    font-family:"Vazir";
+    line-height:1.635;
+}
+
+
+
+//Custom Element Styles Part
+body{
+    direction:rtl;
+    background:map-get($map:$colors,$key:bgColor);
+}
+html{
+    scroll-behavior:smooth;
+    overflow-x:hidden;
+    font-size:$baseFontSize;
+}
+a{
+    text-decoration:none;
+}
+ul,li{
+    list-style:none;
+}
+
+
+//Text-Selection Part
+::selection{
+    color:#ffff00;
+    background:#ca9126;
+}
+::-moz-selection{
+    color:#ffff00;
+    background:#ca9126;
+}

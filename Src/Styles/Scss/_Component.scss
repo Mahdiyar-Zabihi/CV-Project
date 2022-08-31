@@ -1,0 +1,104 @@
+//Border Components Part
+.customBorder--right{
+    position:relative;
+    &::before{
+        content:'';
+        width:5.5px;
+        height:32%;
+        position:absolute;
+        top:15%;
+        right:0;
+        background:map-get($map:$colors,$key:infoColor);
+        border-top-left-radius:23px;
+        border-bottom-left-radius:23px;
+    }
+}
+.customBorder--left{
+    position:relative;
+    &::before{
+        content:'';
+        width:5.5px;
+        height:32%;
+        position:absolute;
+        top:15%;
+        left:0;
+        background:map-get($map:$colors,$key:infoColor);
+        border-top-right-radius:23px;
+        border-bottom-right-radius:23px;
+    }
+}
+
+
+
+//Text Components Part
+.text--start{
+    text-align:start;
+}
+.text--center{
+    text-align:center;
+}
+.text--end{
+    text-align:end;
+}
+
+
+
+//Elements Components Part
+h1{
+    font-size:calc(1.375rem + 1.5vw);
+}
+h2{
+    font-size:calc(1.325rem + 0.9vw);
+}
+h3{
+    font-size:calc(1.3rem + 0.6vw);
+}
+h4{
+    font-size:calc(1.275rem + 0.3vw);
+}
+h5{
+    font-size:1.25rem;
+}
+h6{
+    font-size:1rem;
+}
+
+
+
+//Icons Components Part
+.icon{
+    opacity:0.73;
+    position:absolute;
+    color:lighten($color:map-get($map:$colors,$key:primaryColor),$amount:3);
+    display:inline-block;
+    right:3px;
+    top:7px;
+    z-index:-1;
+}
+
+
+
+//Animations Part
+@keyframes ShowOnLeft{
+    0%{
+        opacity:0;
+        transform:translateX(300px);
+    }100%{
+        opacity:1;
+    }
+}
+@keyframes ShowOnBottom{
+    0%{
+        opacity:0;
+        transform:translateY(200px);
+    }100%{
+        opacity:1;
+    }
+}
+
+
+
+//TextSpacing Components Part
+.text--space{
+    letter-spacing:1.8px;
+}
